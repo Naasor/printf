@@ -1,5 +1,5 @@
 # C - printf
-Write your own printf function.
+Write your own printf function with you team member
 
 ## Authorized functions and macros
 * **write `(man 2 write)`**
