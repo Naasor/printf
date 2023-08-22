@@ -45,4 +45,4 @@ int output_S(va_list);
 /*int output_p(va_list p);*/
 
 
-#endif
+#endif /*MAIN_H*/
