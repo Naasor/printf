@@ -1,34 +1,56 @@
 #include "main.h"
-#include <stdlib.h>
 
 /**
- * print_S - A function that prints a string and nonprintable
- * character ascii values
- * @S: string to print
- * Return: number of printed characters
+ * output_r - Calls a function to reverse and print a string
+ * @arg: Argument passed to the function
+ * Return: The amount of characters printed
  */
-int print_S(va_list S)
+int output_r(va_list arg)
 {
-	unsigned int i = 0;
-	int counter = 0;
-	char *str = va_arg(S, char *);
+	int len;
+	char *str;
+	char *ptr;
 
+	str = va_arg(arg, char *);
 	if (str == NULL)
-		str = "(null)";
-	for (; str[i]; i++)
+		return (-1);
+	ptr = string_rev(str);
+	if (ptr == NULL)
+		return (-1);
+	for (len = 0; ptr[len] != '\0'; len++)
+		catchar(ptr[len]);
+	free(ptr);
+	return (len);
+}
+
+/**
+ * rot13 - Converts string to rot13
+ * @list: string to convert
+ * Return: converted string
+ */
+int output_R(va_list list)
+{
+	int i;
+	int x;
+	char *str;
+	char s[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char u[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+
+	str = va_arg(list, char *);
+	if (str == NULL)
+		return (-1);
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		if (str[i] < 32 || str[i] >= 127)
+		for (x = 0; x <= 52; x++)
 		{
-			catchar('\\');
-			catchar('x');
-			counter += 2;
-			counter += print_S(S);
+			if (str[i] == s[x])
+			{
+				catchar(u[x]);
+				break;
+			}
 		}
-		else
-		{
+		if (x == 53)
 			catchar(str[i]);
-			counter++;
-		}
 	}
-	return (counter);
+	return (i);
 }

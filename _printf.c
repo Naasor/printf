@@ -21,6 +21,8 @@ int _printf(const char *format, ...)
 		/*{"p", output_p},*/
 		{"x", output_x},
 		{"X", output_X},
+		{"r", output_r},
+		{"R", output_R},
 		{NULL, NULL}
 	};
 

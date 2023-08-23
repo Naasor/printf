@@ -42,7 +42,9 @@ int output_u(va_list);
 int output_x(va_list x);
 int output_X(va_list X);
 int output_S(va_list);
-/*int output_p(va_list p);*/
+int output_r(va_list arg);
+int output_R(va_list);
+int output_p(va_list p);
 
 
-#endif /*MAIN_H*/
+#endif
