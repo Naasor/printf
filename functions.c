@@ -24,7 +24,7 @@ int output_r(va_list arg)
 }
 
 /**
- * rot13 - Converts string to rot13
+ * output_R - Converts string to rot13
  * @list: string to convert
  * Return: converted string
  */
